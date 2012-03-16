@@ -29,7 +29,6 @@
           $("#selectionDialog").remove();
         }
         
-        
         $("#selectionDialog").css({
             "position":"absolute", 
             "top": 0, 
@@ -63,7 +62,7 @@
             
         });
         
-        return selectedText;
+        return {"firstElement" : $firstElement.attr('class'), "lastElement" : $lastElement.attr('class'), "text" : selectedText}
       }
       
       remove = function() {
