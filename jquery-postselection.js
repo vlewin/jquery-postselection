@@ -2,7 +2,7 @@
   $.fn.postSelection = function(options) {
       var settings = $.extend( {
         'url' : '',
-        'message' : 'send selection'
+        'text' : 'send selection'
         
       }, options);
       
@@ -19,7 +19,7 @@
         var left = $firstElement.offset().left;
         var top = $firstElement.offset().top;
 
-        var dialog = '<div id="selectionDialog"><a id="sendSelection" href="#" onclick="send()">' + settings.message + '</a><a id="removeSendSelection" href="#">x</a></div>';
+        var dialog = '<div id="selectionDialog"><a id="sendSelection" href="#" onclick="send()">' + settings.text + '</a><a id="removeSendSelection" href="#">x</a></div>';
         
         if(selectedText != '') {
           if($parentElement.has("#selectionDialog").length == 0) { 
