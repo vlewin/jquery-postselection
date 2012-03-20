@@ -2,6 +2,7 @@
   $.fn.postSelection = function(options) {
       var settings = $.extend( {
         'url' : '',
+        'attribute' : 'class',
         'text' : 'send selection'
         
       }, options);
@@ -62,7 +63,17 @@
             
         });
         
-        return {"firstElement" : $firstElement.attr('class'), "lastElement" : $lastElement.attr('class'), "text" : selectedText}
+        if(settings.attribute.match('data')) {
+          var attribute = settings.attribute.split('-')[1];
+          var first =  $firstElement.data(attribute);
+          var last = $lastElement.data(attribute);
+        } else {
+          var first =  $firstElement.attr(settings.attribute);
+          var last = $lastElement.attr(settings.attribute);
+        }
+        
+        
+        return {"first" : first, "last" : last, "text" : selectedText}
       }
       
       remove = function() {
@@ -88,6 +99,6 @@
 
 $(function(){
   var host = "http://localhost:3000";
-  $("#ol").postSelection({ url : host});
+  $("#ol").postSelection({ url : host, attribute : 'data-ln'});
 })
 
