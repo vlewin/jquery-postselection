@@ -31,7 +31,7 @@
         }
         
         $("#selectionDialog").css({
-            "position":"absolute", 
+            "position":"fixed", 
             "top": 0, 
             "left": ($(window).width()/2)-80,
             "width" : "160px",
